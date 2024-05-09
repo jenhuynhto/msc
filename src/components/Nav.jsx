@@ -1,42 +1,77 @@
+import { NavLink } from "react-router-dom";
+import { Menu, X } from "lucide-react";
+import { useState } from "react";
+
 
 const Nav = () => {
+    const [isOpen, setIsOpen] = useState(false);
+
+    const toggleNavbar = () => {
+        setIsOpen(!isOpen)
+    };
+
     let Links = [
-        {name: "Home", link:"/"},
-        {name: "About", link:"/"},
-        {name: "Services", link:"/"},
-        {name: "For Your Visit", link:"/"},
-        {name: "Online Payment", link:"/"},
+        { name: "Home", link: "/home" },
+        { name: "About", link: "/about" },
+        { name: "Services", link: "/services" },
+        { name: "For Your Visit", link: "/foryourvisit" },
+        { name: "Online Payment", link: "/onlinepayment" },
     ];
 
     return (
-        <nav className="bg-slate-600 nav-text">
-            <div className="flex items-center justify-between px-64 py-3">
-                <div className="min-w-[100px]">
-                    <img src="/src/assets/images/msc_logo.png" alt="Many Sleepy Customers - Blue Building"></img>
+        <>
+            <nav className="bg-slate-600 nav-text px-3">
+                <div className="top-0 z-20 mx-auto flex w-full items-center">
+                    <div className="min-w-[100px]">
+                        <img src="/src/assets/images/msc_logo.png" alt="Many Sleepy Customers - Blue Building"></img>
+                    </div>
+
+                    <a href="#" className="text-4xl text-left">Many Sleepy Customers</a>
+                    <h2 className="ml-auto text-right text-4xl">(123) 456-7890</h2>
                 </div>
 
-                <a href="#" className="px-5 text-4xl">Many Sleepy Customers</a>
-                <h2 className="ml-auto text-right text-4xl">(123) 456-7890</h2>
-            </div>
-
-            <hr className="border-gray-700 border-t" />
+                <hr className="border-gray-700 border-t" />
 
 
-            <div className="px-64 py-3 bg-slate-600 absolute w-full">
-                <ul className="md:flex items-center justify-between py-3">
-                    {
-                        Links.map((Link)=>(
-                            <li key={Link.name}>
-                                <a href={Link.link} className="mx-4 hover:text-gray-300">{Link.name}</a>
+                <div className=" bg-slate-600 w-full">
+                    <div>
+                        <ul className="hidden w-full md:flex items-center justify-between py-3 text-center">
+                            {
+                                Links.map((Link) => (
+                                    <li key={Link.name}>
+                                        <a href={Link.link} className="mx-4 hover:text-gray-300">{Link.name}</a>
+                                    </li>
+                                ))
+                            }
+                            <li className="ml-auto text-right">
+                                <a href="link" className="hover:text-gray-300">1234 Something Drive Santa Cruz, CA 95060</a>
                             </li>
-                        ))
-                    }
-                    <li className="ml-auto text-right">
-                        <a href="link" className="hover:text-gray-300">1234 Something Drive Santa Cruz, CA 95060</a>
-                    </li>
-                </ul>
-            </div>
-        </nav>
+                        </ul>
+                    </div>
+                    <div className="md:hidden text-right">
+                        <button onClick={toggleNavbar}>
+                            {isOpen ? <X /> : <Menu />}
+                        </button>
+                    </div>
+                </div>
+            </nav>
+            {isOpen && (
+                <div className="md:hidden flex flex-col items-center basis-full  bg-slate-600 pb-7">
+                    <ul className="text-white">
+                        {
+                            Links.map((Link) => (
+                                <li key={Link.name}>
+                                    <a href={Link.link} className="hover:text-gray-300">{Link.name}</a>
+                                </li>
+                            ))
+                        }
+                        <li className="ml-auto text-right">
+                            <a href="link" className="hover:text-gray-300">1234 Something Drive Santa Cruz, CA 95060</a>
+                        </li>
+                    </ul>
+                </div>
+            )}
+        </>
 
     );
 };
