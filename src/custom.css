@@ -17,7 +17,7 @@
     src: url('/src/assets/fonts/Poppins.ttf') format('truetype')
 }
 
-nav.nav-text {
+.nav-text {
     font-family: 'Poppins';
     color: white;
 }
