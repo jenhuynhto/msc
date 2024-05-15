@@ -22,3 +22,12 @@
     font-weight: bold;
     color: black;
 }
+
+a {
+    margin-left: 1rem;
+    margin-right: 1rem;
+}
+
+a:hover {
+    color: rgb(209 213 219);
+}

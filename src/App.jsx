@@ -1,15 +1,24 @@
-import Nav from "./components/Nav";
+import Nav from "./components/Nav"
+import Home from "./pages/Home"
+import About from "./pages/About"
+import Services from "./pages/Services"
+import ForYourVisit from "./pages/ForYourVisit"
+import { Route, Routes } from "react-router-dom"
 
 function App() {
 
   return (
     <>
       <Nav />
-      <div className="bg-white h-screen">
-        <div className="flex justify-center h-screen">
-          <img className="max-w-[1500x] h-auto rounded-md object-cover" src="/src/assets/images/sf_bridge.jpg" alt="Bay view of the San Francisco Golden Gate Bridge"></img>
-        </div>
+      <div>
+        <Routes>
+          <Route path="/" element={<Home />}/>
+          <Route path="/about" element={<About />}/>
+          <Route path="/services" element={<Services />}/>
+          <Route path="/ForYourVisit" element={<ForYourVisit />}/>
+        </Routes>
       </div>
+        
     </>
   )
 }
