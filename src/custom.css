@@ -23,11 +23,19 @@
     color: black;
 }
 
-a {
+.nav-item{
     margin-left: 1rem;
     margin-right: 1rem;
 }
 
-a:hover {
+.nav-item-mobile:hover{
     color: rgb(209 213 219);
+}
+
+.nav-item:hover {
+    color: rgb(209 213 219);
+}
+
+.active {
+    color:purple;
 }

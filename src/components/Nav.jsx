@@ -16,7 +16,7 @@ const Nav = () => {
                 <div className="xl:px-56 py-3">
                     <div className="top-0 z-20 mx-auto flex w-full items-center">
                         <div className="min-w-[100px]">
-                            <img src="/src/assets/images/msc_logo.png" alt="Many Sleepy Customers - Blue Building"></img>
+                            <Link to="/"><img src="/src/assets/images/msc_logo.png" alt="Many Sleepy Customers - Blue Building"></img></Link>
                         </div>
 
                         <Link to="/" className="text-4xl text-left">Many Sleepy Customers</Link>
@@ -32,23 +32,23 @@ const Nav = () => {
                     <div className="w-full">
                         <div>
                             <ul className="hidden w-full md:flex items-center justify-between py-3 text-center text-2xl">
-                                <li>
-                                    <a href="/">Home</a>
+                                <li className="nav-item">
+                                    <ActiveLink to="/">Home</ActiveLink>
                                 </li>
-                                <li>
-                                    <a href="/about">About</a>
+                                <li className="nav-item">
+                                    <ActiveLink to="/about">About</ActiveLink>
                                 </li>
-                                <li>
-                                    <a href="/services">Services</a>
+                                <li className="nav-item">
+                                    <ActiveLink to="/services">Services</ActiveLink>
                                 </li>
-                                <li>
-                                    <a href="/foryourvisit">For Your Visit</a>
+                                <li className="nav-item">
+                                    <ActiveLink to="/foryourvisit">For Your Visit</ActiveLink>
                                 </li>
-                                <li>
-                                    <a href="https://qportal.liquidemr.com/testEMR/Login/PatientPortal?clinic=msc&token=0&quickpay=true">Online Payment</a>
+                                <li className="nav-item">
+                                    <a href="https://qportal.liquidemr.com/testEMR/Login/PatientPortal?clinic=msc&token=0&quickpay=true" target="_blank" rel="noopener noreferrer">Online Payment</a>
                                 </li>
                                 <li className="ml-auto text-right">
-                                    <a href="link" className="hover:text-gray-300">1234 Something Drive Santa Cruz, CA 95060</a>
+                                    <a href="link" target="_blank" rel="noopener noreferrer" className="hover:text-gray-300">1234 Something Drive Santa Cruz, CA 95060</a>
                                 </li>
                             </ul>
                         </div>
@@ -60,27 +60,31 @@ const Nav = () => {
                     </div>
                 </div>
             </nav>
+
+
             <hr className="border-gray-300 opacity-50" />
+
+
             {isOpen && (
                 <div className="md:hidden flex flex-col items-center basis-full  bg-white pb-8">
                     <ul className="nav-text text-2xl">
-                        <li>
-                            <a href="/">Home</a>
+                        <li className="nav-item-mobile">
+                            <ActiveLink to="/">Home</ActiveLink>
                         </li>
-                        <li>
-                            <a href="/about">About</a>
+                        <li className="nav-item-mobile">
+                            <ActiveLink to="/about">About</ActiveLink>
                         </li>
-                        <li>
-                            <a href="/services">Services</a>
+                        <li className="nav-item-mobile">
+                            <ActiveLink to="/services">Services</ActiveLink>
                         </li>
-                        <li>
-                            <a href="/foryourvisit">For Your Visit</a>
+                        <li className="nav-item-mobile">
+                            <ActiveLink to="/foryourvisit">For Your Visit</ActiveLink>
                         </li>
-                        <li>
-                            <a href="https://qportal.liquidemr.com/testEMR/Login/PatientPortal?clinic=msc&token=0&quickpay=true">Online Payment</a>
+                        <li className="nav-item-mobile">
+                            <a href="https://qportal.liquidemr.com/testEMR/Login/PatientPortal?clinic=msc&token=0&quickpay=true" target="_blank" rel="noopener noreferrer">Online Payment</a>
                         </li>
                         <li className="ml-auto text-right">
-                            <a href="link" className="hover:text-gray-300">1234 Something Drive Santa Cruz, CA 95060</a>
+                            <a href="link" target="_blank" rel="noopener noreferrer" className="hover:text-gray-300">1234 Something Drive Santa Cruz, CA 95060</a>
                         </li>
                     </ul>
                 </div>
@@ -88,5 +92,18 @@ const Nav = () => {
         </>
     );
 };
+
+function ActiveLink({ to, children, ...props }) {
+    const resolvedPath = useResolvedPath(to)
+    const isActive = useMatch({ path: resolvedPath.pathname, end: true })
+
+    return (
+        <li className={isActive ? "active" : ""}>
+            <Link to={to} {...props}>
+                {children}
+            </Link>
+        </li>
+    )
+}
 
 export default Nav;
