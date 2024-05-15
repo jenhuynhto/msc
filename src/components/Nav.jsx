@@ -20,7 +20,7 @@ const Nav = () => {
 
     return (
         <>
-            <nav className="bg-slate-600 nav-text px-3">
+            <nav className="nav-text px-3">
                 <div className="xl:px-56 py-3">
                     <div className="top-0 z-20 mx-auto flex w-full items-center">
                         <div className="min-w-[100px]">
@@ -30,11 +30,16 @@ const Nav = () => {
                         <a href="#" className="text-4xl text-left">Many Sleepy Customers</a>
                         <h2 className="ml-auto text-right text-4xl">(123) 456-7890</h2>
                     </div>
+                </div>
 
 
-                    <div className=" bg-slate-600 w-full">
+                <hr className="border-gray-300 opacity-50" />
+
+
+                <div className="xl:px-56 py-3">
+                    <div className="w-full">
                         <div>
-                            <ul className="hidden w-full md:flex items-center justify-between py-3 text-center">
+                            <ul className="hidden w-full md:flex items-center justify-between py-3 text-center text-2xl">
                                 {
                                     Links.map((Link) => (
                                         <li key={Link.name}>
@@ -55,9 +60,10 @@ const Nav = () => {
                     </div>
                 </div>
             </nav>
+            <hr className="border-gray-300 opacity-50" />
             {isOpen && (
-                <div className="md:hidden flex flex-col items-center basis-full  bg-slate-600 pb-8">
-                    <ul className="nav-text">
+                <div className="md:hidden flex flex-col items-center basis-full  bg-white pb-8">
+                    <ul className="nav-text text-2xl">
                         {
                             Links.map((Link) => (
                                 <li key={Link.name}>
