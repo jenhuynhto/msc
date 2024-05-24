@@ -18,14 +18,12 @@
 }
 
 .nav-text {
-    font-family: 'Montserrat';
-    font-weight: bold;
+    font-family: 'Poppins';
     color: black;
 }
 
 .nav-item{
-    margin-left: 1rem;
-    margin-right: 1rem;
+    margin-right: 2rem;
 }
 
 .nav-item-mobile:hover{
@@ -39,3 +37,7 @@
 .active {
     color:purple;
 }
+
+:root {
+    --swiper-navigation-color: black;
+  }

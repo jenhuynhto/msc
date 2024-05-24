@@ -31,7 +31,7 @@ const Nav = () => {
                 <div className="xl:px-56 py-3">
                     <div className="w-full">
                         <div>
-                            <ul className="hidden w-full md:flex items-center justify-between py-3 text-center text-2xl">
+                            <ul className="hidden w-full lg:flex items-center justify-between py-3 text-center text-2lg">
                                 <li className="nav-item">
                                     <ActiveLink to="/">Home</ActiveLink>
                                 </li>
@@ -52,7 +52,7 @@ const Nav = () => {
                                 </li>
                             </ul>
                         </div>
-                        <div className="md:hidden text-right">
+                        <div className="lg:hidden text-right">
                             <button onClick={toggleNavbar}>
                                 {isOpen ? <X /> : <Menu />}
                             </button>
@@ -66,7 +66,7 @@ const Nav = () => {
 
 
             {isOpen && (
-                <div className="md:hidden flex flex-col items-center basis-full  bg-white pb-8">
+                <div className="lg:hidden flex flex-col items-center basis-full  bg-white py-8">
                     <ul className="nav-text text-2xl">
                         <li className="nav-item-mobile">
                             <ActiveLink to="/">Home</ActiveLink>
@@ -94,16 +94,14 @@ const Nav = () => {
 };
 
 function ActiveLink({ to, children, ...props }) {
-    const resolvedPath = useResolvedPath(to)
-    const isActive = useMatch({ path: resolvedPath.pathname, end: true })
+    const resolvedPath = useResolvedPath(to);
+    const isActive = useMatch({ path: resolvedPath.pathname, end: true });
 
     return (
-        <li className={isActive ? "active" : ""}>
-            <Link to={to} {...props}>
-                {children}
-            </Link>
-        </li>
-    )
+        <Link to={to} className={isActive ? "active" : ""} {...props}>
+            {children}
+        </Link>
+    );
 }
 
 export default Nav;
