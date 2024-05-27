@@ -17,9 +17,15 @@
     src: url('/src/assets/fonts/Poppins.ttf') format('truetype')
 }
 
+@font-face {
+    font-family: 'SourceSans';
+    src: url('/src/assets/fonts/SourceSans.ttf') format('truetype')
+}
+
 .nav-text {
-    font-family: 'Poppins';
+    font-family: 'SourceSans';
     color: black;
+    font-weight:bold;
 }
 
 .nav-item{

@@ -31,7 +31,7 @@ const Nav = () => {
                 <div className="xl:px-56 py-3">
                     <div className="w-full">
                         <div>
-                            <ul className="hidden w-full lg:flex items-center justify-between py-3 text-center text-2lg">
+                            <ul className="hidden w-full text-xl lg:flex items-center justify-between py-3 text-center text-2lg">
                                 <li className="nav-item">
                                     <ActiveLink to="/">Home</ActiveLink>
                                 </li>
